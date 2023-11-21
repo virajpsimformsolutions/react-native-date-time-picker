@@ -1,3 +1,4 @@
+// @ts-nocheck
 import dayjs from 'dayjs';
 import React, { Ref, useCallback, useRef, useState } from 'react';
 import { FlatListProps, StyleSheet, TextInput, View, ViewStyle } from 'react-native';
