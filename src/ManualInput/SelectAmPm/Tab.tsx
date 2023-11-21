@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-import { SelectAmOrPm } from '../index';
 import { themeColors } from '../../config/constants';
+import { SelectAmOrPm } from '../index';
 
 type Props = {
     text: string;

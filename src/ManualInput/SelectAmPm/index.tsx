@@ -1,9 +1,10 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
+import { themeColors } from '../../config/constants';
 import { SelectAmOrPm } from '../index';
 import Tab from './Tab';
-import { themeColors } from '../../config/constants';
+
 type Props = {
     selected: SelectAmOrPm;
     setSelected: (flag: SelectAmOrPm) => void;

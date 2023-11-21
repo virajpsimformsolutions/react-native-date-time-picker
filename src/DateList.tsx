@@ -1,5 +1,4 @@
-import React from 'react';
-import { memo, MutableRefObject, useMemo, useRef } from 'react';
+import React, { memo, MutableRefObject, useMemo, useRef } from 'react';
 import {
     Animated,
     FlatListProps,
@@ -10,8 +9,8 @@ import {
     ViewStyle,
 } from 'react-native';
 
-import type { ItemType, ListItemStyleType } from './types';
 import { themeColors } from './config/constants';
+import type { ItemType, ListItemStyleType } from './types';
 
 const NUMBER_OF_ITEMS = 3;
 

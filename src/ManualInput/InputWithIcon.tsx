@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
 import { Image, StyleSheet, Text, TextInput, View, ViewStyle } from 'react-native';
 
+import { themeColors } from '../config/constants';
 import { ManualInputDefault } from '../types';
 import Input from './Input';
-import { themeColors } from '../config/constants';
 
 type Props = {
     iconUrl: string;

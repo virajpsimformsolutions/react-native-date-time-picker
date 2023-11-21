@@ -1,12 +1,12 @@
-import React, { Ref, useEffect, useState, useRef } from 'react';
+import React, { Ref, useEffect, useRef, useState } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 
 import { ImageUrl } from '../config/ImageUrls';
+import { themeColors } from '../config/constants';
 import { convertTimeTo24hr, validateDate, validateTime } from '../helpers';
 import { InputDefaultLength, ManualInputDefault, Mode } from '../types';
 import { InputWithIcon } from './InputWithIcon';
 import SelectAmPm from './SelectAmPm';
-import { themeColors } from '../config/constants';
 
 type Props = {
     onChange: (text: Date) => void;

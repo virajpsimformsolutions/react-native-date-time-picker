@@ -1,8 +1,8 @@
 import React, { forwardRef, useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-import { ManualInputDefault } from '../types';
 import { themeColors } from '../config/constants';
+import { ManualInputDefault } from '../types';
 
 const obfusChars = ['/', ':'];
 

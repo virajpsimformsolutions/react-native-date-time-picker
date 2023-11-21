@@ -1,7 +1,6 @@
 import dayjs from 'dayjs';
-import React, { Ref, useCallback } from 'react';
-import { useRef, useState } from 'react';
-import { FlatListProps, StyleSheet, View, ViewStyle, TextInput } from 'react-native';
+import React, { Ref, useCallback, useRef, useState } from 'react';
+import { FlatListProps, StyleSheet, TextInput, View, ViewStyle } from 'react-native';
 
 import DateList from './DateList';
 import { debounce, getData, numberOfDaysIn } from './helpers';
@@ -58,6 +57,9 @@ type Props = {
      */
     minuteInterval?: number;
     enableTyping?: boolean;
+    hideDate?: boolean;
+    hideMonth?: boolean;
+    hideYear?: boolean;
     setError: (err: string) => void;
     dateRef?: Ref<TextInput>;
 };
@@ -77,6 +79,9 @@ const DateTimePicker = ({
     minuteInterval = 1,
     enableTyping = false,
     dateRef,
+    hideDate = false,
+    hideMonth = false,
+    hideYear = false,
     setError,
 }: Props) => {
     /**
@@ -209,34 +214,38 @@ const DateTimePicker = ({
                         flatListProps={flatListProps}
                     />
                 )}
-                <DateList
-                    data={startListData}
-                    itemHeight={itemHeight}
-                    onChange={debouncedHandleChange}
-                    listItemStyle={listItemStyle}
-                    selectedValue={selectedStartItem}
-                    initialScrollIndex={getInitialScrollIndex(
-                        selectedStartItem.current,
-                        startListData
-                    )}
-                    separatorColor={separatorColor}
-                    flatListProps={flatListProps}
-                />
-                <DateList
-                    data={middleListData}
-                    itemHeight={itemHeight}
-                    selectedValue={selectedMiddleItem}
-                    onChange={debouncedHandleChange}
-                    listItemStyle={listItemStyle}
-                    style={styles.middleListStyle}
-                    initialScrollIndex={getInitialScrollIndex(
-                        selectedMiddleItem.current,
-                        middleListData
-                    )}
-                    separatorColor={separatorColor}
-                    flatListProps={flatListProps}
-                />
-                {(mode === 'date' || !is24Hour) && (
+                {!hideDate && (
+                    <DateList
+                        data={startListData}
+                        itemHeight={itemHeight}
+                        onChange={debouncedHandleChange}
+                        listItemStyle={listItemStyle}
+                        selectedValue={selectedStartItem}
+                        initialScrollIndex={getInitialScrollIndex(
+                            selectedStartItem.current,
+                            startListData
+                        )}
+                        separatorColor={separatorColor}
+                        flatListProps={flatListProps}
+                    />
+                )}
+                {!hideMonth && (
+                    <DateList
+                        data={middleListData}
+                        itemHeight={itemHeight}
+                        selectedValue={selectedMiddleItem}
+                        onChange={debouncedHandleChange}
+                        listItemStyle={listItemStyle}
+                        style={styles.middleListStyle}
+                        initialScrollIndex={getInitialScrollIndex(
+                            selectedMiddleItem.current,
+                            middleListData
+                        )}
+                        separatorColor={separatorColor}
+                        flatListProps={flatListProps}
+                    />
+                )}
+                {((mode === 'date' && !hideYear) || !is24Hour) && (
                     <DateList
                         data={endListData}
                         itemHeight={itemHeight}
