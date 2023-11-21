@@ -8,8 +8,6 @@ import {
     View,
     ViewStyle,
 } from 'react-native';
-
-import { themeColors } from './config/constants';
 import type { ItemType, ListItemStyleType } from './types';
 
 const NUMBER_OF_ITEMS = 3;
@@ -157,7 +155,6 @@ const List = memo(
                     )}
                     {...rest}
                 />
-                <View pointerEvents="box-none" style={[styles.divider, dividerStyle]} />
             </View>
         );
     }
@@ -173,13 +170,6 @@ const styles = StyleSheet.create({
     text: {
         color: 'black',
         textAlign: 'center',
-    },
-    divider: {
-        position: 'absolute',
-        width: '100%',
-        borderTopWidth: 2,
-        borderBottomWidth: 2,
-        borderColor: themeColors.surface,
     },
 });
 

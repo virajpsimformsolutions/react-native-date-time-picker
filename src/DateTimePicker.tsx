@@ -2,6 +2,7 @@ import dayjs from 'dayjs';
 import React, { Ref, useCallback, useRef, useState } from 'react';
 import { FlatListProps, StyleSheet, TextInput, View, ViewStyle } from 'react-native';
 
+import { themeColors } from './config/constants';
 import DateList from './DateList';
 import { debounce, getData, numberOfDaysIn } from './helpers';
 import ManualInput from './ManualInput';
@@ -69,7 +70,7 @@ const DateTimePicker = ({
     initialValue = new Date(),
     is24Hour = false,
     onChange,
-    itemHeight = 40,
+    itemHeight = 30,
     containerStyle,
     listItemStyle,
     separatorColor,
@@ -197,6 +198,7 @@ const DateTimePicker = ({
     return (
         <View style={containerStyle}>
             <View style={styles.row}>
+                <View pointerEvents="box-none" style={styles.divider(itemHeight)} />
                 {mode === 'datetime' && (
                     <DateList
                         data={clubbedDateListData}
@@ -291,6 +293,15 @@ const styles = StyleSheet.create({
     clubbedDateListItemStyle: {
         textAlign: 'left',
     },
+    // @ts-ignore
+    divider: (itemHeight: number) => ({
+        marginTop: itemHeight,
+        position: 'absolute',
+        width: '100%',
+        backgroundColor: themeColors.divider,
+        borderRadius: 10,
+        height: itemHeight,
+    }),
 });
 
 export default DateTimePicker;

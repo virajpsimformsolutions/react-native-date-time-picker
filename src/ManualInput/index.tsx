@@ -1,8 +1,8 @@
 import React, { Ref, useEffect, useRef, useState } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 
-import { ImageUrl } from '../config/ImageUrls';
 import { themeColors } from '../config/constants';
+import { ImageUrl } from '../config/ImageUrls';
 import { convertTimeTo24hr, validateDate, validateTime } from '../helpers';
 import { InputDefaultLength, ManualInputDefault, Mode } from '../types';
 import { InputWithIcon } from './InputWithIcon';
