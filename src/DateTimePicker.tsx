@@ -199,7 +199,6 @@ const DateTimePicker = ({
     return (
         <View style={containerStyle}>
             <View style={styles.row}>
-                <View pointerEvents="box-none" style={styles.divider(itemHeight)} />
                 {mode === 'datetime' && (
                     <DateList
                         data={clubbedDateListData}
@@ -263,6 +262,7 @@ const DateTimePicker = ({
                         flatListProps={flatListProps}
                     />
                 )}
+                <View pointerEvents="box-none" style={styles.divider(itemHeight)} />
             </View>
         </View>
     );
